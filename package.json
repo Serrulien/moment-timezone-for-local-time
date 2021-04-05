@@ -1,0 +1,66 @@
+{
+  "author": "Julien Serrurier <contact@julienserrurier.fr>",
+  "description": "Get all matching timezones given a local time and a timestamp. Moment.js plugin",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@types/jest": "26",
+    "@types/node": "^12.20.7",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^32.3.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "jest": "26",
+    "jest-config": "26",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^2.42.4",
+    "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
+    "typescript": "4"
+  },
+  "engines": {
+    "node": "12.22.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "moment",
+    "localtime",
+    "local time",
+    "timezone",
+    "time zone"
+  ],
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es5.js",
+  "name": "moment-timezone-for-local-time",
+  "peerDependencies": {
+    "moment-timezone": "0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Serrulien/moment-timezone-for-local-time"
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.json && rollup -c rollup.config.ts",
+    "lint": "eslint src test",
+    "prebuild": "rimraf dist",
+    "start": "rollup -c rollup.config.ts -w",
+    "test": "jest --coverage",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "test:watch": "jest --coverage --watch"
+  },
+  "types": "dist/index.d.ts",
+  "version": "0.1.0",
+  "volta": {
+    "node": "12.22.0"
+  }
+}
