@@ -6,17 +6,20 @@ import camelcase from "lodash.camelcase";
 import pkg from "./package.json";
 
 export default {
-  external: [
-    "moment-timezone",
-  ],
+  external: ["moment-timezone"],
   input: `src/index.ts`,
   output: [
-    { file: pkg.main, format: "umd", name: camelcase(pkg.name), sourcemap: true },
+    {
+      file: pkg.main,
+      format: "umd",
+      name: camelcase(pkg.name),
+      sourcemap: true,
+    },
     { file: pkg.module, format: "es", sourcemap: true },
   ],
   plugins: [
     json(),
-    typescript({tsconfig: "tsconfig.json"}),
+    typescript({ tsconfig: "tsconfig.json" }),
     commonjs(),
     resolve(),
   ],
