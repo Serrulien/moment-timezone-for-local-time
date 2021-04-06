@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Types update. `namespace tz` becomes `interface MomentTimezone`. That reflects the moment-timezone v0.5.30 definition file.
+
 # 1.0.0
 
 **BREAKING CHANGES:**

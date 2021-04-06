@@ -37,6 +37,7 @@ Indicates the version to use according your moment-timezone version.
 
 | moment-timezone | moment-timezone-for-local-time | notes                                              |
 | --------------- | ------------------------------ | -------------------------------------------------- |
+| >= 0.5.30       | 1.1.0                          |
 | >= 0.5.29       | 1.0.0                          | use at least moment 2.15.0 to avoid type conflicts |
 | >= 0.2.0        | 0.1.1                          |
 | 0.1.0           | 0.1.0                          |
