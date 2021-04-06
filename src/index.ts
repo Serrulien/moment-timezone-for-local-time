@@ -2,15 +2,14 @@ import moment from "moment-timezone";
 import { forLocalTime as _forLocalTime } from "./moment-timezone-for-local-time";
 
 declare module "moment" {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace tz {
+  interface MomentTimezone {
     /**
      * List all timezones with the same local time as current system.
      *
      * @returns list of timezone identifiers
      * @author [moment-timezone-for-local-time](https://github.com/Serrulien/moment-timezone-for-local-time)
      */
-    function forLocalTime(): string[];
+    forLocalTime(): string[];
     /**
      * List all timezones with the same local time for a given timestamp.
      *
@@ -19,7 +18,7 @@ declare module "moment" {
      * @throws {RangeError} when hour isn't in [0, 23] or minute isn't in [0, 59]
      * @author [moment-timezone-for-local-time](https://github.com/Serrulien/moment-timezone-for-local-time)
      */
-    function forLocalTime(
+    forLocalTime(
       hour: number,
       minute: number,
       timestamp?: moment.Moment | Date | number | null
