@@ -43,7 +43,7 @@
   "module": "dist/index.es5.js",
   "name": "moment-timezone-for-local-time",
   "peerDependencies": {
-    "moment-timezone": "0.1.0"
+    "moment-timezone": ">=0.2.0"
   },
   "repository": {
     "type": "git",
