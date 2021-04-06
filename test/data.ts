@@ -35,7 +35,7 @@ export function newYear2000UTC1(): DataCtx {
     "Africa/Porto-Novo", // WAT
     "Africa/Tunis", // EU
     "Arctic/Longyearbyen", // EU
-    // "Atlantic/Jan_Mayen", // EU
+    "Atlantic/Jan_Mayen", // EU
     "CET", // EU
     "Etc/GMT-1", // none
     "Europe/Amsterdam", // EU
@@ -48,29 +48,29 @@ export function newYear2000UTC1(): DataCtx {
     "Europe/Busingen", // EU
     "Europe/Copenhagen", // EU
     "Europe/Gibraltar", // EU
-    // "Europe/Ljubljana", // EU
+    "Europe/Ljubljana", // EU
     "Europe/Luxembourg", // EU
     "Europe/Madrid", // EU
     "Europe/Malta", // EU
     "Europe/Monaco", // EU
-    // "Europe/Oslo", // EU
+    "Europe/Oslo", // EU
     "Europe/Paris", // EU
-    // "Europe/Podgorica", // EU
-    // "Europe/Prague", // EU
+    "Europe/Podgorica", // EU
+    "Europe/Prague", // EU
     "Europe/Rome", // EU
-    // "Europe/San_Marino", // EU
-    // "Europe/Sarajevo", // EU
-    // "Europe/Skopje", // EU
+    "Europe/San_Marino", // EU
+    "Europe/Sarajevo", // EU
+    "Europe/Skopje", // EU
     "Europe/Stockholm", // EU
     "Europe/Tirane", // EU
-    // "Europe/Vaduz", // EU
-    // "Europe/Vatican", // EU
+    "Europe/Vaduz", // EU
+    "Europe/Vatican", // EU
     "Europe/Vienna", // EU
     "Europe/Warsaw", // EU
-    // "Europe/Zagreb", // EU
-    // "Europe/Zurich", // EU
+    "Europe/Zagreb", // EU
+    "Europe/Zurich", // EU
     "MET", // none
-    // "Poland", // EU
+    "Poland", // EU
   ];
   return { date, timezones, localtime, timestamp, isoString };
 }
