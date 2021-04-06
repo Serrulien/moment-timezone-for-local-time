@@ -1,6 +1,9 @@
-# 0.1.0
+# 0.1.1
 
-targets moment-timezone 0.1.0
+- Update tests according to tzdata of moment-timezone 0.2.0.
+- (No actual changes otherwise)
+
+# 0.1.0
 
 ## Features
 
