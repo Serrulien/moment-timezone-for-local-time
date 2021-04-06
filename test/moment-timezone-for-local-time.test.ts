@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-// @ts-ignore
 import * as moment from "moment-timezone";
 import { forLocalTime as _forLocalTime } from "../src/moment-timezone-for-local-time";
 import { newYear2000UTC1 } from "./data";
@@ -9,6 +6,7 @@ type OmitThisArg<F> = F extends (this: never, ...args: infer P) => infer R
   ? (...args: P) => R
   : never;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 const forLocalTime = _forLocalTime.bind(moment.tz) as OmitThisArg<
   typeof _forLocalTime
 >;

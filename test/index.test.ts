@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-ignore
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as moment from "moment-timezone";
 import { extend, forLocalTime } from "../src/index";
 import { forLocalTime as _forLocalTime } from "../src/moment-timezone-for-local-time";
@@ -81,10 +81,11 @@ describe("moment.tz.fromLocalTime:", () => {
   });
 
   it("timestamp can be either be a Date, number or moment and should the return value should be the same whatever the argument type", () => {
-    const curried = (timestamp: Parameters<typeof forLocalTime>[2]) =>
+    const curried = (timestamp: Parameters<typeof forLocalTime>[2]): string[] =>
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       moment.tz.forLocalTime(now.getHours(), now.getMinutes(), timestamp);
     const expected = curried(now.getTime()); // number
-    expect(curried((moment as any)(data.timestamp))).toEqual(expected); // moment instance
+    expect(curried(moment(data.timestamp))).toEqual(expected); // moment instance
     expect(curried(now)).toEqual(expected); // Date
   });
 

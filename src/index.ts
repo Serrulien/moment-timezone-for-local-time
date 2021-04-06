@@ -1,6 +1,31 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import moment from "moment-timezone";
 import { forLocalTime as _forLocalTime } from "./moment-timezone-for-local-time";
+
+declare module "moment" {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace tz {
+    /**
+     * List all timezones with the same local time as current system.
+     *
+     * @returns list of timezone identifiers
+     * @author [moment-timezone-for-local-time](https://github.com/Serrulien/moment-timezone-for-local-time)
+     */
+    function forLocalTime(): string[];
+    /**
+     * List all timezones with the same local time for a given timestamp.
+     *
+     * @param timestamp defaults to Date.now()
+     * @returns list of timezone identifiers
+     * @throws {RangeError} when hour isn't in [0, 23] or minute isn't in [0, 59]
+     * @author [moment-timezone-for-local-time](https://github.com/Serrulien/moment-timezone-for-local-time)
+     */
+    function forLocalTime(
+      hour: number,
+      minute: number,
+      timestamp?: moment.Moment | Date | number | null
+    ): string[];
+  }
+}
 
 /**
  * List all timezones with the same local time as current system.
@@ -8,7 +33,7 @@ import { forLocalTime as _forLocalTime } from "./moment-timezone-for-local-time"
  * @returns list of timezone identifiers
  * @author [moment-timezone-for-local-time](https://github.com/Serrulien/moment-timezone-for-local-time)
  */
-export function forLocalTime(this: any): string[];
+export function forLocalTime(this: typeof moment.tz): string[];
 /**
  * List all timezones with the same local time for a given timestamp.
  *
@@ -18,16 +43,16 @@ export function forLocalTime(this: any): string[];
  * @author [moment-timezone-for-local-time](https://github.com/Serrulien/moment-timezone-for-local-time)
  */
 export function forLocalTime(
-  this: any,
+  this: typeof moment.tz,
   hour: number,
   minute: number,
-  timestamp?: { valueOf(): number } | Date | number | null
+  timestamp?: moment.Moment | Date | number | null
 ): string[];
 export function forLocalTime(
-  this: any,
+  this: typeof moment.tz,
   hour?: number,
   minute?: number,
-  timestamp?: { valueOf(): number } | Date | number | null
+  timestamp?: moment.Moment | Date | number | null
 ): string[] {
   if (arguments.length === 0) {
     const now = new Date();
@@ -55,10 +80,12 @@ export function forLocalTime(
       }.`
     );
   }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
   return _forLocalTime.call(this, hour, minute, timestamp.valueOf());
 }
 
-export function extend(momentJS: { tz: any }): void {
+export function extend(momentJS: typeof moment): void {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   if (!momentJS?.tz) {
     throw new Error(
       "The given object doesn't have a 'tz' property. Make sure to import moment-timezone before extending momentjs with moment-timezone-for-local-time."

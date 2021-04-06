@@ -1,14 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
+import moment from "moment-timezone";
 /**
  * @internal
  * @see {moment.MomentTimezone.forLocalTime}
  */
 export function forLocalTime(
-  this: any,
+  this: typeof moment.tz,
   hour: number,
   minute: number,
   timestamp: number
@@ -16,9 +13,11 @@ export function forLocalTime(
   hour = Math.floor(hour);
   minute = Math.floor(minute);
   const tzs: string[] = [];
+
   const zones = this.names();
   for (const zone of zones) {
-    const ref = this(timestamp, zone);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const ref = this(timestamp as any, zone);
     if (ref.hour() === hour && ref.minute() === minute) {
       tzs.push(zone);
     }
