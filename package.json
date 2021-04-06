@@ -43,7 +43,7 @@
   "module": "dist/index.es5.js",
   "name": "moment-timezone-for-local-time",
   "peerDependencies": {
-    "moment-timezone": ">=0.2.0"
+    "moment-timezone": ">=0.5.29"
   },
   "repository": {
     "type": "git",
@@ -59,7 +59,7 @@
     "test:watch": "jest --coverage --watch"
   },
   "types": "dist/index.d.ts",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "volta": {
     "node": "12.22.0"
   }
