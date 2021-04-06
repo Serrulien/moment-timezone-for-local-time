@@ -80,17 +80,14 @@ export function forLocalTime(
       }.`
     );
   }
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
   return _forLocalTime.call(this, hour, minute, timestamp.valueOf());
 }
 
 export function extend(momentJS: typeof moment): void {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   if (!momentJS?.tz) {
     throw new Error(
       "The given object doesn't have a 'tz' property. Make sure to import moment-timezone before extending momentjs with moment-timezone-for-local-time."
     );
   }
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   momentJS.tz.forLocalTime = forLocalTime;
 }

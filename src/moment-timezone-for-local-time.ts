@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
 import moment from "moment-timezone";
 /**
  * @internal
@@ -13,7 +12,6 @@ export function forLocalTime(
   hour = Math.floor(hour);
   minute = Math.floor(minute);
   const tzs: string[] = [];
-
   const zones = this.names();
   for (const zone of zones) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

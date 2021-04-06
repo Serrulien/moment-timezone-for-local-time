@@ -6,7 +6,6 @@ type OmitThisArg<F> = F extends (this: never, ...args: infer P) => infer R
   ? (...args: P) => R
   : never;
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 const forLocalTime = _forLocalTime.bind(moment.tz) as OmitThisArg<
   typeof _forLocalTime
 >;

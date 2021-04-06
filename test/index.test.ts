@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as moment from "moment-timezone";
 import { extend, forLocalTime } from "../src/index";
@@ -16,6 +14,7 @@ it("should extend throw if given object not in shape of moment", () => {
 });
 
 it("should extend modify moment so that exports.forLocalTime === moment.tz.forLocalTime", () => {
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   expect(moment.tz.forLocalTime).toBe(forLocalTime);
 });
 
