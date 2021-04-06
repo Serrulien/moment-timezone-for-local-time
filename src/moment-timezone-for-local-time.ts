@@ -14,8 +14,7 @@ export function forLocalTime(
   const tzs: string[] = [];
   const zones = this.names();
   for (const zone of zones) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ref = this(timestamp as any, zone);
+    const ref = this(timestamp, zone);
     if (ref.hour() === hour && ref.minute() === minute) {
       tzs.push(zone);
     }
